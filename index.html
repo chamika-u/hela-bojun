@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Matcha Shop</title>
+
+        <!-- Linking Font Awesome CSS for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Linking Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <!--Linking Main stylsheet file-->
+        <link rel="stylesheet" href="assets/styles/style.css">
+        <!--Linking Respponsive CSS file -->
+        <link rel="stylesheet" href="assets/styles/responsive.css">
+
+    </head>
+    <body>
+        <header>
+            <!--navbar Section-->
+            <nav class="navbar section-content">
+                <a href="#" class="nav-logo">
+                <h1 class="logo-text">හෙළ බොජුන්</h1>
+                </a>
+                <!--nav menu items starts from here-->
+                <ul class="nav-menu">
+                    <!--navbar mobile closing button-->
+                    <button type="button" id="menu-close-button" class="fas fa-times" aria-label="Close menu"></button>
+                    <!--nav items-->
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <!--navbar mobile opening button-->
+                <button type="button" id="menu-open-button" class="fas fa-bars" aria-label="Open menu"></button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-section" id="home">
+                <div class="section-content">
+                    <div class="hero-details">
+                        <h2 class="title">Best Matcha</h2>
+                        <h3 class="subtitle">Make your day great with our healthy matcha!</h3>
+                        <p class="description">
+                            Experience the rich aroma and exquisite taste of our handcrafted matcha blends, made from the finest beans sourced globally.
+                        </p>
+                        <div class="buttons">
+                            <a href="#" class="button order-now">Order Now</a>
+                            <a href="#" class="button contact-us">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <img src="assets/images/hero-section.png" alt="Hero" class="hero-image">
+
+                    </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section" id="about">
+                <div class="section-content">
+                   <div class="about-image-wrapper">
+                    <img src="assets/images/about-image.jpg" alt="About" class="about-image">
+                   </div>
+                   <div class="about-details">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="text">
+                        At Matcha Shop in Colombo, Sri Lanka, we pride ourselves on being
+                        a favorite spot for matcha lovers and conversation seekers alike.
+                        We're committed to delivering an exceptional matcha experience in a warm and inviting setting,
+                        where guests can relax, unwind, and enjoy their time in true comfort.
+                    </p>
+                    <div class="social-link-list">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                   </div>
+                </div>
+            </section>
+
+            <!--Menu Section-->
+            <section class="menu-section" id="menu">
+                <h2 class="section-title">Our Menu</h2>
+                <div class="section-content">
+                    <ul class="menu-list">
+                    <li class="menu-item">
+                        <img src="assets/images/item-5.png" class="menu-item-image" alt="Hot Beverages">
+                        <h3 class="name">Hot Beverages</h3>
+                        <p class="text">A selection of our finest hot beverages, crafted to perfection.</p>
+                    </li>
+
+                     <li class="menu-item">
+                        <img src="assets/images/item-4.png" class="menu-item-image" alt="Cold Beverages">
+                        <h3 class="name">Cold Beverages</h3>
+                        <p class="text">A selection of our finest cold beverages, crafted to perfection.</p>
+                    </li>
+
+                    <li class="menu-item">
+                        <img src="assets/images/item-6.png" class="menu-item-image" alt="Refreshments">
+                        <h3 class="name">Ice-cream Bowl</h3>
+                        <p class="text">Three scoops of matcha ice-cream with a waffel cracker side.</p>
+                    </li>
+
+                     <li class="menu-item">  
+                        <img src="assets/images/item-2.png" class="menu-item-image" alt="Special Combo">
+                        <h3 class="name">Matcha Swissroll</h3>
+                        <p class="text">Healthy and greeny matcha swissroll with less sugar.</p>
+                     </li>
+
+                     <li class="menu-item">
+                        <img src="assets/images/item-3.png" class="menu-item-image" alt="Burger and French Fries">
+                        <h3 class="name">Ice-cream corn</h3>
+                        <p class="text">A delecious matcha and soya ice-cream corn. </p>
+                     </li>
+
+                    <li class="menu-item">
+                        <img src="assets/images/item-1.png" class="menu-item-image" alt="Desserts">
+                        <h3 class="name">Bread</h3>
+                        <p class="text">A selection of our finest bread, baked to perfection.</p>
+                    </li>
+                    </ul>
+                
+                </div>
+            </section>
+
+            <!-- Testimonials Section-->
+            <section class="testimonials-section" id="testimonials">
+                <h2 class="section-title">Testimonials</h2>
+                <div class="section-content">
+                    <div class="slider-container swiper">
+                        <div class="slider-wrapper">
+                            <ul class="testimonials-list swiper-wrapper">
+                                
+                                <li class="testimonial swiper-slide">
+                                    <img src="assets/images/user-1.jpg" alt="User 1" class="user-image">
+                                    <h3 class="name">Sarah Johnson</h3>
+                                    <i class="feedback">
+                                        "Loved this matcha bread. Perfectly Balanced and Rich. Will order again!" 
+                                    </i>
+                                </li>
+
+                                 <li class="testimonial swiper-slide">
+                                    <img src="assets/images/user-2.jpg" alt="User 2" class="user-image">
+                                    <h3 class="name">Daniel Carter</h3>
+                                    <i class="feedback">
+                                        "The latte was smooth and creamy—just the way I like it. Highly recommend!" 
+                                    </i>
+                                </li>
+
+                                 <li class="testimonial swiper-slide">
+                                    <img src="assets/images/user-3.jpg" alt="User 3" class="user-image">
+                                    <h3 class="name">Ethan Collins</h3>
+                                    <i class="feedback">
+                                        "Great flavors and friendly staff. The ice-cream bowl is a must-try!" 
+                                    </i>
+                                </li>
+
+                                 <li class="testimonial swiper-slide">
+                                    <img src="assets/images/user-4.jpg" alt="User 4" class="user-image">
+                                    <h3 class="name">Olivia Brooks</h3>
+                                    <i class="feedback">
+                                        "The latte is cozy and the swissroll was heavenly. Perfect for a relaxing evening!" 
+                                    </i>
+                                </li>
+
+                                 <li class="testimonial swiper-slide">
+                                    <img src="assets/images/user-5.jpg" alt="User 5" class="user-image">
+                                    <h3 class="name">James Walker</h3>
+                                    <i class="feedback">
+                                        "Exceptional service and the iced-matcha was spot-on. Will definitely return!" 
+                                    </i>
+                                </li>
+                            </ul>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-slide-button swiper-button-prev"></div>
+                            <div class="swiper-slide-button swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+             <section class="gallery-section" id="gallery">
+                <h2 class="section-title">Gallery</h2>
+                <div class="section-content">
+                    <ul class="gallery-list">
+                        <li class="gallery-item">
+                            <img src="assets/images/gallery-1.jpg" alt="Gallery Image 1" class="gallery-image">
+                        </li>
+                        <li class="gallery-item">
+                            <img src="assets/images/gallery-2.jpg" alt="Gallery Image 2" class="gallery-image">
+                        </li>
+                        <li class="gallery-item">
+                            <img src="assets/images/gallery-3.jpg" alt="Gallery Image 3" class="gallery-image">
+                        </li>
+                        <li class="gallery-item">
+                            <img src="assets/images/gallery-4.jpg" alt="Gallery Image 4" class="gallery-image">    
+                        </li>
+                        <li class="gallery-item">
+                            <img src="assets/images/gallery-5.jpg" alt="Gallery Image 5" class="gallery-image">
+                        </li>
+                        <li class="gallery-item">
+                            <img src="assets/images/gallery-6.jpg" alt="Gallery Image 6" class="gallery-image">
+                        </li>
+                    </ul>
+                </div>
+             </section>
+
+             <!--Contact Section-->
+             <section class="contact-section" id="contact">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="section-content">
+                    <ul class="contact-info-list">
+                        <li class="contact-info">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            <p>123/11, Old Road, Colombo</p>
+                        </li>
+
+                         <li class="contact-info">
+                            <i class="fa-regular fa-envelope"></i>
+                            <p>info@matchashop.com</p>
+                        </li>
+
+                         <li class="contact-info">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>+95 77 777 7777</p>
+                        </li>
+
+                         <li class="contact-info">
+                            <i class="fa-regular fa-clock"></i>
+                            <p>Monday - Friday: 7:00 AM - 7:00 PM</p>
+                        </li>
+
+                           <li class="contact-info">
+                            <i class="fa-regular fa-clock"></i>
+                            <p>Saturday: 6:00 AM - 5:00 PM</p>
+                        </li>
+
+                         <li class="contact-info">
+                            <i class="fa-regular fa-clock"></i>
+                            <p>Sunday: Closed</p>
+                        </li>
+
+                        <li class="contact-info">
+                            <i class="fa-solid fa-globe"></i>
+                            <p>www.matchashop.com</p>
+                        </li>
+                    </ul>
+                    <form action="#" class="contact-form">
+                        <input type="text" placeholder="Your name"class="form-input" required>
+                        <input type="email" placeholder="Your email"class="form-input" required>
+                        <textarea name="form-input" id="" placeholder="Your message" class="form-input" required></textarea>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </form>
+                </div>
+             </section>
+
+             <!-- Footer Section -->
+              <footer class="footer-section">
+                <div class="section-content">
+                    <p class="copyright-text">
+                        &copy; 2025 Matcha Shop. All rights reserved.
+                    </p>
+                    <div class="social-link-list">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+
+                    <p class="policy-text">
+                        <a href="#" class="policy-link">Privacy policy</a>
+                        <span class="separator">.</span>
+                        <a href="#" class="policy-link">Refund policy</a>
+                    </p>
+                    
+                </div>
+
+              </footer>
+        </main>
+
+        <!-- Linking Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!--Linking Main js script file-->
+        <script src="assets/scripts/script.js"></script>
+    </body>
+</html>
