@@ -395,7 +395,7 @@ header .navbar {
     font-size: var(--font-size-m);
 }
 
-.contact-section .contact-form .form-input {
+.contact-section .emb-map .form-input {
     width: 100%;
     height: 50px;
     padding: 0 12px;
@@ -406,20 +406,20 @@ header .navbar {
     border: 1px solid var(--medium-gray-color);
 }
 
-.contact-section .contact-form {
+.contact-section .emb-map {
     max-width: 50%;
 }
-.contact-section .contact-form .form-input:focus {
+.contact-section .emb-map .form-input:focus {
     border-color: var(--secondary-color);
 }
 
-.contact-section .contact-form textarea .form-input {
+.contact-section .emb-map textarea .form-input {
     height: 100px;
     padding: 12px;
     resize: vertical;
 }
 
-.contact-section .contact-form  .submit-button {
+.contact-section .emb-map  .submit-button {
     padding: 10px 26px;
     color: var(--white-color);
     margin-top: 10px;
@@ -431,7 +431,7 @@ header .navbar {
     transition: 0.3s ease;
 }
 
-.contact-section .contact-form  .submit-button:hover {
+.contact-section .emb-map  .submit-button:hover {
     color: var(--primary-color);
     background: transparent;
 }

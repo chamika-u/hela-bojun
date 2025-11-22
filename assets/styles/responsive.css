@@ -83,7 +83,7 @@
      }
 
      .hero-section .hero-details :is(.subtitle, .description), 
-     .about-section .about-details, .contact-section .contact-form {
+     .about-section .about-details, .contact-section .emb-map {
         max-width: 100%;
      }
      
