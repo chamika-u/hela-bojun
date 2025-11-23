@@ -108,6 +108,7 @@ header .navbar {
     font-size: var(--font-size-xl);
     font-family: "Maname", serif;
     font-style: normal;
+    font-weight: var(--font-weight-semi-bold);
 }
 
 .navbar .nav-menu {
