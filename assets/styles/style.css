@@ -107,8 +107,7 @@ header .navbar {
     color: var(--white-color);
     font-size: var(--font-size-xl);
     font-family: "Maname", serif;
-    font-style: normal;
-    font-weight: var(--font-weight-semi-bold);
+    margin-bottom: 15px;
 }
 
 .navbar .nav-menu {
