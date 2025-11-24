@@ -28,7 +28,7 @@ A modern, responsive website for **Hela Bojun**, a cafeteria at **Sabaragamuwa U
 ## 📸 Screenshots
 
 ### Home  
-![Home](screenshot.png)
+![Home](assets/images/screenshot.png)
 
 ---
 
