@@ -1,20 +1,23 @@
-const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 const menuOpenButton = document.getElementById('menu-open-button');
 const menuCloseButton = document.getElementById('menu-close-button');
+const navMenu = document.querySelector('.nav-menu');
 
+// Function to close the mobile menu
+const closeMobileMenu = () => document.body.classList.remove("show-mobile-menu");
+
+// Toggle mobile menu visibility when open button is clicked
 menuOpenButton.addEventListener('click', () => {
-    
-// Toggle mobile menu visibility 
     document.body.classList.toggle("show-mobile-menu");
 });
 
-// close menu when the close button clicked
-menuCloseButton.addEventListener('click', () => menuOpenButton.click
-());
+// Close menu when the close button is clicked
+menuCloseButton.addEventListener('click', closeMobileMenu);
 
-// close menu when one of the nav link is clicked eg: Home, About, Menu, Testimonials, Contact
-navLinks.forEach(link => {
-    link.addEventListener('click', () => menuOpenButton.click());
+// Use event delegation for nav links to avoid multiple event listeners
+navMenu.addEventListener('click', (e) => {
+    if (e.target.classList.contains('nav-link')) {
+        closeMobileMenu();
+    }
 });
 
 // Install Swiper.js slider for testimonials section

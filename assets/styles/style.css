@@ -1,6 +1,5 @@
 /* Importing Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Maname&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maname&family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +22,7 @@
     --font-size-s: 0.9rem;
     --font-size-n: 1rem;
     --font-size-m: 1.12rem;
-    --font-size-l: rem;
+    --font-size-l: 1.5rem;
     --font-size-xl: 2rem;
     --font-size-xxl: 2.3rem;
 
