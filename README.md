@@ -4,7 +4,7 @@ A modern, responsive website for **Hela Bojun**, a cafeteria at **Sabaragamuwa U
 
 ---
 
-1. Repository URL : https://github.com/chamika-u/hela-bojun
+1. Roadmap.sh URL : https://roadmap.sh/projects/static-site-server
 
 ---
 
