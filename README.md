@@ -4,10 +4,6 @@ A modern, responsive website for **Hela Bojun**, a cafeteria at **Sabaragamuwa U
 
 ---
 
-1. Roadmap.sh URL : https://roadmap.sh/projects/static-site-server
-
----
-
 ## ✅ Features
 
 - **Responsive Design** — Works seamlessly on desktop, tablet, and mobile.
