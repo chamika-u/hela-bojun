@@ -6,6 +6,6 @@
 // Never commit config.js to version control.
 
 window.APP_CONFIG = {
-    adminUsername: 'admin',
-    adminPasswordHash: 'admin123'
+    adminUsername: 'your-admin-username',
+    adminPasswordHash: 'sha256-hash-of-your-password'
 };
