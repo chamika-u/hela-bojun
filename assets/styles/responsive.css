@@ -121,7 +121,7 @@
      }
 
      .hero-section .hero-details :is(.subtitle), 
-     .about-section .about-details, .contact-section .emb-map {
+     .about-section .about-details {
         max-width: 100%;
         width: 100%;
      }
@@ -183,12 +183,26 @@
 
      .contact-section  .section-content {
         align-items: center;
-        flex-direction: column-reverse;
+        flex-direction: column;
+    }
+
+    .contact-section .emb-map {
+        max-width: 100%;
+        width: 100%;
+        min-height: 300px;
+    }
+
+    .contact-section .emb-map .map-iframe {
+        min-height: 300px;
     }
 }
 
 /* Responsive Styles for 640px */
 @media screen and (max-width: 640px){
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+
     .menu-section .menu-list{
         gap: 60px;
     }
