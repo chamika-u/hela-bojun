@@ -58,7 +58,7 @@
     }
 
     .navbar #menu-open-button {
-        color: var(--white-color);
+        color: var(--primary-color);
     }
 
     .navbar .nav-menu {
@@ -81,7 +81,7 @@
     }
 
     .navbar .nav-menu .nav-link {
-        color: var(--dark-color);
+        color: var(--text-color);
         font-size: var(--font-size-l);
         display: block;
         margin-top: 17px;
