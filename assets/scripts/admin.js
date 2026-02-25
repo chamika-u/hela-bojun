@@ -29,7 +29,7 @@ function setActiveSection(sectionName) {
     if (target) target.classList.remove('hidden');
 
     // Update page title
-    const titles = { dashboard: 'Dashboard Overview', products: 'Products' };
+    const titles = { dashboard: 'Dashboard Overview', products: 'Products', messages: 'Messages & Inquiries' };
     if (pageTitle) pageTitle.textContent = titles[sectionName] || sectionName;
 }
 
@@ -80,6 +80,19 @@ function updateStats() {
     document.getElementById('stat-categories').textContent = categories;
     document.getElementById('stat-available').textContent = available;
     document.getElementById('stat-oos').textContent = oos;
+
+    // Pending messages stat
+    const inquiries = getInquiries ? getInquiries() : [];
+    const pending = inquiries.filter(i => !i.reviewStatus || i.reviewStatus === 'pending').length;
+    const statPending = document.getElementById('stat-pending-msgs');
+    if (statPending) statPending.textContent = pending;
+
+    // Sidebar badge
+    const badge = document.getElementById('sidebar-msg-badge');
+    if (badge) {
+        badge.textContent = pending;
+        badge.classList.toggle('hidden', pending === 0);
+    }
 }
 
 // ---- Render Recent Items (Dashboard) ----
@@ -350,6 +363,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         if (!productModal.classList.contains('hidden')) closeProductModal();
         if (!deleteModal.classList.contains('hidden')) closeDeleteModal();
+        if (messageModal && !messageModal.classList.contains('hidden')) closeMessageModal();
     }
 });
 
@@ -359,6 +373,228 @@ function refreshDashboard() {
     renderRecentItems();
     populateCategoryFilter();
     applyFilters();
+    renderMessagesTable();
+}
+
+// ---- Messages Section ----
+
+const MSG_TYPE_LABELS = {
+    general: 'General Inquiry',
+    product: 'Product Inquiry',
+    complaint: 'Complaint'
+};
+
+const MSG_STATUS_LABELS = {
+    pending: 'Pending',
+    reviewed: 'Reviewed',
+    resolved: 'Resolved'
+};
+
+const MSG_STATUS_BADGE = {
+    pending: 'badge-pending',
+    reviewed: 'badge-reviewed',
+    resolved: 'badge-resolved'
+};
+
+const INQUIRY_LABEL_MAP = {
+    general: 'General Inquiry', product: 'Product Inquiry', complaint: 'Complaint',
+    menu_info: 'Menu & food information', hours_location: 'Operating hours & location',
+    pricing_payment: 'Pricing & payment options', reservation_bulk: 'Reservation or bulk order',
+    website_digital: 'Website or digital services', other: 'Other',
+    quality_taste: 'Quality & taste', freshness_ingredients: 'Freshness & ingredients',
+    portion_size: 'Portion size', allergen_info: 'Allergen & ingredients info',
+    availability: 'Availability inquiry', pricing: 'Pricing concern', packaging: 'Packaging concern',
+    staff: 'Staff / Workers', place: 'Place, Parking & Infrastructure',
+    health: 'Health & Hygiene',
+    poor_quality: 'Poor quality or taste', stale_food: 'Stale or expired food',
+    foreign_object: 'Foreign object found in food', mislabeled: 'Wrong item or mislabeled',
+    overcharged: 'Overcharged / wrong price', rude_behavior: 'Rude or inappropriate behavior',
+    staff_hygiene: 'Poor personal hygiene', slow_service: 'Slow or poor service',
+    wrong_order: 'Wrong order or mistake', unprofessional: 'Unprofessional conduct',
+    parking: 'Parking facilities', seating: 'Insufficient seating',
+    cleanliness: 'Cleanliness of premises', infrastructure: 'Building or infrastructure issue',
+    accessibility: 'Accessibility concerns', food_safety: 'Food safety concern',
+    environment_hygiene: 'Environment hygiene', sanitation: 'Sanitation of facilities',
+    contamination: 'Suspected contamination', pests: 'Pest or rodent presence'
+};
+
+function msgLabel(value) {
+    return INQUIRY_LABEL_MAP[value] || value || '—';
+}
+
+function formatDate(isoStr) {
+    if (!isoStr) return '—';
+    const d = new Date(isoStr);
+    return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) +
+        ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+}
+
+function renderMessagesTable() {
+    const tbody = document.getElementById('messages-tbody');
+    const emptyState = document.getElementById('msg-empty-state');
+    if (!tbody) return;
+
+    const searchVal = (document.getElementById('msg-search-input') || {}).value || '';
+    const typeVal = (document.getElementById('msg-type-filter') || {}).value || '';
+    const statusVal = (document.getElementById('msg-status-filter') || {}).value || '';
+
+    let items = getInquiries ? getInquiries() : [];
+
+    // Sort newest first
+    items = items.slice().sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+    if (searchVal) {
+        const q = searchVal.toLowerCase();
+        items = items.filter(i =>
+            (i.name && i.name.toLowerCase().includes(q)) ||
+            (i.email && i.email.toLowerCase().includes(q)) ||
+            (i.ref && i.ref.toLowerCase().includes(q))
+        );
+    }
+    if (typeVal) {
+        items = items.filter(i => i.type === typeVal);
+    }
+    if (statusVal) {
+        items = items.filter(i => (i.reviewStatus || 'pending') === statusVal);
+    }
+
+    if (items.length === 0) {
+        tbody.innerHTML = '';
+        if (emptyState) emptyState.classList.remove('hidden');
+        return;
+    }
+    if (emptyState) emptyState.classList.add('hidden');
+
+    tbody.innerHTML = items.map(item => {
+        const status = item.reviewStatus || 'pending';
+        const badgeClass = MSG_STATUS_BADGE[status] || 'badge-pending';
+        const typeLabel = MSG_TYPE_LABELS[item.type] || item.type || '—';
+        return `
+        <tr>
+            <td><code class="msg-ref">${item.ref || '—'}</code></td>
+            <td><span class="badge msg-type-badge msg-type-${item.type}">${typeLabel}</span></td>
+            <td>${item.name || '—'}</td>
+            <td class="msg-email">${item.email || '—'}</td>
+            <td class="msg-date">${formatDate(item.timestamp)}</td>
+            <td><span class="badge ${badgeClass}">${MSG_STATUS_LABELS[status] || status}</span></td>
+            <td>
+                <div class="action-btns">
+                    <button class="btn-icon btn-icon-view" data-ref="${item.ref}" aria-label="View message ${item.ref}">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>`;
+    }).join('');
+
+    tbody.querySelectorAll('.btn-icon-view').forEach(btn => {
+        btn.addEventListener('click', () => openMessageModal(btn.dataset.ref));
+    });
+}
+
+// ---- Message Detail Modal ----
+const messageModal = document.getElementById('message-modal');
+let currentMsgRef = null;
+
+function openMessageModal(ref) {
+    const items = getInquiries ? getInquiries() : [];
+    const item = items.find(i => i.ref === ref);
+    if (!item) return;
+    currentMsgRef = ref;
+
+    const status = item.reviewStatus || 'pending';
+    const statusSelect = document.getElementById('msg-status-select');
+    if (statusSelect) statusSelect.value = status;
+
+    // Build detail rows
+    const rows = [];
+    rows.push({ label: 'Reference', value: item.ref });
+    rows.push({ label: 'Type', value: MSG_TYPE_LABELS[item.type] || item.type });
+    rows.push({ label: 'Name', value: item.name });
+    rows.push({ label: 'Email', value: item.email });
+    rows.push({ label: 'Phone', value: item.phone || '—' });
+    rows.push({ label: 'Date', value: formatDate(item.timestamp) });
+
+    if (item.type === 'general') {
+        rows.push({ label: 'Topic', value: msgLabel(item.issue) });
+        if (item.issue === 'other' && item.otherDetail) {
+            rows.push({ label: 'Other Detail', value: item.otherDetail });
+        }
+    } else if (item.type === 'product') {
+        if (item.products && item.products.length) {
+            rows.push({ label: 'Product(s)', value: item.products.join(', ') });
+        }
+        rows.push({ label: 'Issue', value: msgLabel(item.issue) });
+    } else if (item.type === 'complaint') {
+        rows.push({ label: 'Category', value: msgLabel(item.complaintCategory) });
+        if (item.products && item.products.length) {
+            rows.push({ label: 'Product(s)', value: item.products.join(', ') });
+        }
+        if (item.issue) {
+            rows.push({ label: 'Issue', value: msgLabel(item.issue) });
+        }
+    }
+
+    rows.push({ label: 'Message', value: item.message, full: true });
+    rows.push({ label: 'Review Status', value: MSG_STATUS_LABELS[status] || status });
+
+    const body = document.getElementById('msg-detail-body');
+    if (body) {
+        body.innerHTML = rows.map(r => `
+            <div class="msg-detail-row${r.full ? ' msg-detail-row-full' : ''}">
+                <span class="msg-detail-label">${r.label}</span>
+                <span class="msg-detail-value">${r.value || '—'}</span>
+            </div>
+        `).join('');
+    }
+
+    messageModal.classList.remove('hidden');
+}
+
+function closeMessageModal() {
+    messageModal.classList.add('hidden');
+    currentMsgRef = null;
+}
+
+document.getElementById('message-modal-close').addEventListener('click', closeMessageModal);
+document.getElementById('message-modal-cancel').addEventListener('click', closeMessageModal);
+
+document.getElementById('msg-save-status').addEventListener('click', () => {
+    if (!currentMsgRef) return;
+    const sel = document.getElementById('msg-status-select');
+    if (sel && typeof updateInquiryStatus === 'function') {
+        updateInquiryStatus(currentMsgRef, sel.value);
+        closeMessageModal();
+        refreshDashboard();
+    }
+});
+
+document.getElementById('msg-delete-btn').addEventListener('click', () => {
+    if (!currentMsgRef) return;
+    if (confirm('Delete this message? This cannot be undone.')) {
+        if (typeof deleteInquiry === 'function') deleteInquiry(currentMsgRef);
+        closeMessageModal();
+        refreshDashboard();
+    }
+});
+
+messageModal.addEventListener('click', (e) => {
+    if (e.target === messageModal) closeMessageModal();
+});
+
+// Filters for messages
+const msgSearchInput = document.getElementById('msg-search-input');
+const msgTypeFilter = document.getElementById('msg-type-filter');
+const msgStatusFilterEl = document.getElementById('msg-status-filter');
+
+if (msgSearchInput) msgSearchInput.addEventListener('input', renderMessagesTable);
+if (msgTypeFilter) msgTypeFilter.addEventListener('change', renderMessagesTable);
+if (msgStatusFilterEl) msgStatusFilterEl.addEventListener('change', renderMessagesTable);
+
+// Dashboard stat card click → go to messages
+const dashGoMessages = document.getElementById('dash-go-messages');
+if (dashGoMessages) {
+    dashGoMessages.addEventListener('click', () => setActiveSection('messages'));
 }
 
 // ---- Initialize ----
