@@ -177,9 +177,16 @@
         display: none;
     }
 
-    .footer-section .section-content {
+    .footer-top .section-content {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .footer-bottom .section-content {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
     }
 
     /* About page responsive */
@@ -232,6 +239,11 @@
 @media screen and (max-width: 900px) {
     .menu-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-top .section-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
     }
 }
 
