@@ -1,10 +1,14 @@
 // Admin Authentication – Hela Bojun
-const ADMIN_CREDENTIALS = {
-    username: 'admin',
-    password: 'admin123'
-};
 
 const AUTH_KEY = 'helaBojunAdminAuth';
+
+async function hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 function isAdminLoggedIn() {
     return sessionStorage.getItem(AUTH_KEY) === 'true';
@@ -23,13 +27,22 @@ if (loginForm) {
         window.location.href = 'admin.html';
     }
 
-    loginForm.addEventListener('submit', (e) => {
+    loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const username = document.getElementById('login-username').value.trim();
         const password = document.getElementById('login-password').value;
         const errorEl = document.getElementById('login-error');
 
-        if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+        const config = window.APP_CONFIG;
+        if (!config) {
+            errorEl.textContent = 'Configuration not loaded. Please ensure config.js is present.';
+            errorEl.classList.remove('hidden');
+            return;
+        }
+
+        const passwordHash = await hashPassword(password);
+
+        if (username === config.adminUsername && passwordHash === config.adminPasswordHash) {
             sessionStorage.setItem(AUTH_KEY, 'true');
             window.location.href = 'admin.html';
         } else {
