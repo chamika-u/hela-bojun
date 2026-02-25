@@ -150,6 +150,36 @@ header .navbar {
 .hero-section {
     background: var(--primary-color);
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background glow — top-right */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: 120px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 227, 194, 0.13) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Decorative background glow — bottom-left */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: -140px;
+    left: -100px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 227, 194, 0.08) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-section .section-content {
@@ -158,38 +188,40 @@ header .navbar {
     justify-content: space-between;
     color: var(--white-color);
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-section .hero-details .title{
-    font-size: var(--font-size-xxl);
+    font-size: 4.2rem;
     color: var(--secondary-color);
     font-family: 'Miniver', sans-serif;
+    line-height: 1.05;
 }
 
 .hero-section .hero-details .subtitle {
-    font-size: var(--font-size-xl);
-    margin-top: 8px;
-    max-width: 70%;
-    font-weight: var(--font-weight-semi-bold);
+    font-size: var(--font-size-m);
+    margin-top: 14px;
+    margin-bottom: 36px;
+    max-width: 82%;
+    font-weight: var(--font-weight-regular);
+    opacity: 0.85;
+    line-height: 1.6;
 }
 
-.hero-section .hero-details .description {
-    font-size: var(--font-size-m);
-    margin: 24px 0 40px;
-    max-width: 70%;
-}
 .hero-section .hero-details .buttons {
     display: flex;
-    gap: 23px;
+    gap: 16px;
 }
 
 .hero-section .hero-details .button {
-    padding: 10px 26px;
+    padding: 12px 30px;
     background: var(--secondary-color);
     border: 2px solid transparent;
     color: var(--primary-color);
     border-radius: var(--border-radius-m);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-semi-bold);
+    font-size: var(--font-size-m);
     transition: 0.3s ease;
 }
 
@@ -197,19 +229,42 @@ header .navbar {
 .hero-section .hero-details .button:hover,
 .hero-section .hero-details .contact-us {
     color: var(--white-color);
-    border-color: var(--white-color);
+    border-color: rgba(255, 255, 255, 0.6);
     background: transparent;
 }
 
 .hero-section .hero-details .contact-us:hover{
     color: var(--primary-color);
     border-color: var(--secondary-color);
-    background:  var(--secondary-color);
+    background: var(--secondary-color);
 }
 
 .hero-section .hero-image-wrapper {
-    max-width: 500px;
+    max-width: 520px;
     margin-right: 30px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Warm glow behind the hero image */
+.hero-section .hero-image-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 227, 194, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-section .hero-image-wrapper .hero-image {
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
 }
 
 /* About Section Styles */
