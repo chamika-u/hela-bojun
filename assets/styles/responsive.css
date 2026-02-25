@@ -113,15 +113,22 @@
       }
 
       .about-section .section-content {
-        gap: 70px;
-        flex-direction: column-reverse;
+        gap: 60px;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .about-section .about-image-wrapper .about-image{
-        width: 100%;
-        height: 100%;
-        max-width: 250px;
-        aspect-ratio: 1;
+      .about-section .about-details {
+        max-width: 100%;
+      }
+
+      .about-image-frame {
+        width: 280px;
+      }
+
+      .about-section .about-image-wrapper .about-image {
+        width: 280px;
+        height: 320px;
       }
 
       .features-grid {

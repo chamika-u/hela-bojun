@@ -269,54 +269,161 @@ header .navbar {
 
 /* About Section Styles */
 .about-section {
-    padding: 120px 0;
+    padding: 100px 0;
     background: var(--anti-flash-white);
-
 }
 
 .about-section .section-content {
     display: flex;
-    gap: 50px;
+    gap: 72px;
     align-items: center;
     justify-content: space-between;
 }
 
-.about-section .about-image-wrapper .about-image{
-    width: 400px;
-    height: 400px;
+.about-image-wrapper {
+    flex-shrink: 0;
+}
+
+.about-image-frame {
+    position: relative;
+    width: 420px;
+}
+
+.about-image-frame::before {
+    content: '';
+    position: absolute;
+    inset: -12px 12px 12px -12px;
+    border: 3px solid var(--secondary-color);
+    border-radius: 16px;
+    z-index: 0;
+}
+
+.about-section .about-image-wrapper .about-image {
+    width: 420px;
+    height: 480px;
     object-fit: cover;
-    border-radius: var(--border-radius-circle);
+    border-radius: 14px;
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+
+.about-image-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 14px;
+    padding: 16px 22px;
+    text-align: center;
+    z-index: 2;
+    box-shadow: 0 6px 20px rgba(18, 53, 36, 0.35);
+}
+
+.about-badge-number {
+    display: block;
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+.about-badge-text {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    line-height: 1.4;
+    margin-top: 5px;
+    display: block;
 }
 
 .about-section .about-details {
-    max-width: 50%;
+    max-width: 52%;
 }
 
-.about-section .about-details .section-title{
-    padding: 0%;
+.about-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-semi-bold);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(18, 53, 36, 0.09);
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
 }
 
-.about-section .about-details .text{
-    line-height: 30px;
-    margin: 50px 0 30px;
-    text-align: center;
+.about-heading {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--dark-color);
+    line-height: 1.35;
+    margin-bottom: 20px;
+}
+
+.about-heading em {
+    font-style: normal;
+    color: var(--primary-color);
+}
+
+.about-text {
     font-size: var(--font-size-m);
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.about-highlights {
+    list-style: none;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.about-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--font-size-m);
+    color: var(--dark-color);
+}
+
+.about-highlights li i {
+    color: var(--primary-color);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.about-actions {
+    margin-bottom: 28px;
 }
 
 .about-section .social-link-list {
     display: flex;
-    gap: 25px;
+    gap: 12px;
+}
+
+.about-section .social-link-list .social-link {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-}
-
-.about-section .social-link-list .social-link{
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-circle);
+    border: 1.5px solid var(--primary-color);
     color: var(--primary-color);
-    font-size: var(--font-size-l);
-    transition: 0.3s ease;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.about-section .social-link-list .social-link:hover{
-    color: var(--secondary-color);
+.about-section .social-link-list .social-link:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+    transform: translateY(-3px);
 }
 
 /* Menu Section Styles */
@@ -749,7 +856,6 @@ footer {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 28px;
     background: var(--primary-color);
     color: var(--white-color);
     border: 2px solid var(--primary-color);
