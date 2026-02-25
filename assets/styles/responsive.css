@@ -99,8 +99,12 @@
         margin-right: 0;
      }
 
-     .hero-section .hero-details :is(.subtitle, .description), 
-     .contact-section .emb-map {
+     .hero-section .hero-details .title {
+        font-size: 3rem;
+     }
+
+     .hero-section .hero-details :is(.subtitle), 
+     .about-section .about-details, .contact-section .emb-map {
         max-width: 100%;
      }
      
