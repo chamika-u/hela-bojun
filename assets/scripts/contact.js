@@ -315,6 +315,7 @@ const LABEL_MAP = {
     staff: 'Staff / Workers',
     place: 'Place, Parking & Infrastructure',
     health: 'Health & Hygiene',
+    product_complaint: 'Product Related',
     // Complaint – product
     poor_quality: 'Poor quality or taste',
     stale_food: 'Stale or expired food',
@@ -370,7 +371,7 @@ function buildSummary() {
 
     if (type === 'complaint') {
         const cat = getSelectedRadio('complaint_category');
-        rows.push({ label: 'Category', value: labelOf(cat) });
+        rows.push({ label: 'Category', value: cat === 'product' ? 'Product Related' : labelOf(cat) });
         if (cat === 'product') {
             rows.push({ label: 'Product(s)', value: getCheckedProducts('product-grid-complaint').join(', ') });
             rows.push({ label: 'Complaint', value: labelOf(getSelectedRadio('comp_product_issue')) });
