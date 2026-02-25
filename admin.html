@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard – Hela Bojun</title>
+        <meta name="description" content="Hela Bojun Product Management Dashboard">
+
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Admin Stylesheet -->
+        <link rel="stylesheet" href="assets/styles/admin.css">
+    </head>
+    <body>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar" aria-label="Admin sidebar navigation">
+            <div class="sidebar-header">
+                <span class="sidebar-logo">හෙළ බොජුන්</span>
+                <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Dashboard navigation">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item active" data-section="dashboard">
+                        <button class="sidebar-link" aria-label="Dashboard overview">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Dashboard</span>
+                        </button>
+                    </li>
+                    <li class="sidebar-item" data-section="products">
+                        <button class="sidebar-link" aria-label="Manage products">
+                            <i class="fas fa-utensils"></i>
+                            <span>Products</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="sidebar-link back-link" aria-label="Go to main website">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Main Site</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main" id="admin-main">
+
+            <!-- Top Bar -->
+            <header class="admin-topbar" role="banner">
+                <button class="topbar-menu-btn" id="topbar-menu-btn" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="topbar-title">
+                    <h1 id="page-title">Dashboard Overview</h1>
+                </div>
+                <div class="topbar-actions">
+                    <a href="index.html" class="topbar-site-link" aria-label="View main website">
+                        <i class="fas fa-external-link-alt"></i> View Site
+                    </a>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section class="admin-section" id="section-dashboard">
+
+                <!-- Stats Cards -->
+                <div class="stats-grid" role="region" aria-label="Overview statistics">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-green">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Items</p>
+                            <h2 class="stat-value" id="stat-total">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-amber">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Categories</p>
+                            <h2 class="stat-value" id="stat-categories">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Available</p>
+                            <h2 class="stat-value" id="stat-available">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-red">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Out of Stock</p>
+                            <h2 class="stat-value" id="stat-oos">0</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Products Preview -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Items</h2>
+                        <button class="btn btn-primary btn-sm" id="dash-go-products">View All</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table" aria-label="Recent menu items">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-items-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Products Section -->
+            <section class="admin-section hidden" id="section-products">
+
+                <div class="section-toolbar">
+                    <h2 class="toolbar-title">All Products</h2>
+                    <button class="btn btn-primary" id="add-product-btn" aria-label="Add new product">
+                        <i class="fas fa-plus"></i> Add Item
+                    </button>
+                </div>
+
+                <!-- Filter / Search -->
+                <div class="filter-bar">
+                    <input type="search" id="search-input" class="filter-input" placeholder="Search items…" aria-label="Search menu items">
+                    <select id="category-filter" class="filter-select" aria-label="Filter by category">
+                        <option value="">All Categories</option>
+                    </select>
+                    <select id="status-filter" class="filter-select" aria-label="Filter by status">
+                        <option value="">All Statuses</option>
+                        <option value="available">Available</option>
+                        <option value="out-of-stock">Out of Stock</option>
+                    </select>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="table-wrapper">
+                        <table class="data-table" aria-label="All menu items">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-tbody"></tbody>
+                        </table>
+                    </div>
+                    <p class="empty-state hidden" id="empty-state">No items found.</p>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Add / Edit Modal -->
+        <div class="modal-overlay hidden" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modal-title">Add New Item</h2>
+                    <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+                </div>
+                <form class="modal-form" id="product-form" novalidate>
+                    <input type="hidden" id="form-item-id">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="form-name">Item Name <span aria-hidden="true">*</span></label>
+                            <input type="text" id="form-name" class="form-input" placeholder="e.g. Rice and Curry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-category">Category <span aria-hidden="true">*</span></label>
+                            <input type="text" id="form-category" class="form-input" list="category-list" placeholder="e.g. Main Course" required>
+                            <datalist id="category-list">
+                                <option value="Main Course">
+                                <option value="Beverages">
+                                <option value="Short Eats">
+                                <option value="Desserts">
+                                <option value="Sweets">
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-description">Description</label>
+                        <textarea id="form-description" class="form-input form-textarea" placeholder="Describe the item…" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="form-price">Price (Rs.) <span aria-hidden="true">*</span></label>
+                            <input type="number" id="form-price" class="form-input" placeholder="e.g. 350" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-status">Status</label>
+                            <select id="form-status" class="form-input">
+                                <option value="available">Available</option>
+                                <option value="out-of-stock">Out of Stock</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-image">Image URL</label>
+                        <input type="text" id="form-image" class="form-input" placeholder="e.g. assets/images/item-1.png">
+                        <div class="image-preview-wrapper">
+                            <img id="image-preview" src="" alt="Item preview" class="image-preview hidden">
+                        </div>
+                    </div>
+
+                    <p class="form-error hidden" id="form-error" role="alert"></p>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="modal-cancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="form-submit">Save Item</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div class="modal-overlay hidden" id="delete-modal" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title">
+            <div class="modal modal-sm">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="delete-modal-title">Delete Item</h2>
+                    <button class="modal-close" id="delete-modal-close" aria-label="Close modal">&times;</button>
+                </div>
+                <p class="delete-message">Are you sure you want to delete <strong id="delete-item-name"></strong>? This action cannot be undone.</p>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="delete-cancel">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="delete-confirm">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/scripts/data.js"></script>
+        <script src="assets/scripts/admin.js"></script>
+    </body>
+</html>
