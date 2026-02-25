@@ -123,6 +123,7 @@
      .hero-section .hero-details :is(.subtitle), 
      .about-section .about-details, .contact-section .emb-map {
         max-width: 100%;
+        width: 100%;
      }
      
       .hero-section .hero-details .buttons {
