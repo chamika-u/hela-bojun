@@ -311,12 +311,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     width: 100%;
 }
 
-/* Color the top accent based on icon bg class */
-.stat-card:has(.bg-green)::before  { background: var(--admin-success); }
-.stat-card:has(.bg-amber)::before  { background: var(--admin-amber); }
-.stat-card:has(.bg-blue)::before   { background: var(--admin-blue); }
-.stat-card:has(.bg-red)::before    { background: var(--admin-danger); }
-.stat-card:has(.bg-purple)::before { background: var(--admin-purple); }
+/* Color the top accent strip based on explicit data-accent attribute */
+.stat-card[data-accent="green"]::before  { background: var(--admin-success); }
+.stat-card[data-accent="amber"]::before  { background: var(--admin-amber); }
+.stat-card[data-accent="blue"]::before   { background: var(--admin-blue); }
+.stat-card[data-accent="red"]::before    { background: var(--admin-danger); }
+.stat-card[data-accent="purple"]::before { background: var(--admin-purple); }
 
 .stat-card-inner {
     display: flex;

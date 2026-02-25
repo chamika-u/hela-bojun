@@ -1086,6 +1086,7 @@ footer {
     border: 1px solid rgba(239,227,194,0.12);
     border-radius: 16px;
     padding: 16px 24px;
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
