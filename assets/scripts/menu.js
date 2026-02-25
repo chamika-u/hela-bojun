@@ -104,6 +104,5 @@ if (siteHeader) {
 }
 
 // ---- Initialize ----
-seedMenuItems(); // ensure data is seeded before building filter tabs
 setupCategoryFilters();
 renderMenuPage();
