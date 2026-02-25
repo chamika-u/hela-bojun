@@ -103,3 +103,31 @@ function deleteMenuItem(id) {
     const filtered = items.filter(i => i.id !== id);
     saveMenuItems(filtered);
 }
+
+// ---- Inquiry / Contact Submissions ----
+const INQUIRIES_KEY = 'helaBojunInquiries';
+
+function getInquiries() {
+    const data = localStorage.getItem(INQUIRIES_KEY);
+    return data ? JSON.parse(data) : [];
+}
+
+function saveInquiries(items) {
+    localStorage.setItem(INQUIRIES_KEY, JSON.stringify(items));
+}
+
+function updateInquiryStatus(ref, reviewStatus) {
+    const items = getInquiries();
+    const index = items.findIndex(i => i.ref === ref);
+    if (index !== -1) {
+        items[index].reviewStatus = reviewStatus;
+        saveInquiries(items);
+        return items[index];
+    }
+    return null;
+}
+
+function deleteInquiry(ref) {
+    const items = getInquiries();
+    saveInquiries(items.filter(i => i.ref !== ref));
+}

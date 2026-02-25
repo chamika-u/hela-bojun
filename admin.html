@@ -40,6 +40,13 @@
                             <span>Products</span>
                         </button>
                     </li>
+                    <li class="sidebar-item" data-section="messages">
+                        <button class="sidebar-link" aria-label="Review messages and inquiries">
+                            <i class="fas fa-envelope"></i>
+                            <span>Messages</span>
+                            <span class="sidebar-badge hidden" id="sidebar-msg-badge">0</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
 
@@ -113,6 +120,15 @@
                             <h2 class="stat-value" id="stat-oos">0</h2>
                         </div>
                     </div>
+                    <div class="stat-card stat-card-clickable" id="dash-go-messages">
+                        <div class="stat-icon bg-purple">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Pending Messages</p>
+                            <h2 class="stat-value" id="stat-pending-msgs">0</h2>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Recent Products Preview -->
@@ -179,6 +195,52 @@
                         </table>
                     </div>
                     <p class="empty-state hidden" id="empty-state">No items found.</p>
+                </div>
+
+            </section>
+
+            <!-- Messages Section -->
+            <section class="admin-section hidden" id="section-messages">
+
+                <div class="section-toolbar">
+                    <h2 class="toolbar-title">Messages &amp; Inquiries</h2>
+                </div>
+
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <input type="search" id="msg-search-input" class="filter-input" placeholder="Search by name, email or ref…" aria-label="Search messages">
+                    <select id="msg-type-filter" class="filter-select" aria-label="Filter by inquiry type">
+                        <option value="">All Types</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="product">Product Inquiry</option>
+                        <option value="complaint">Complaint</option>
+                    </select>
+                    <select id="msg-status-filter" class="filter-select" aria-label="Filter by review status">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="reviewed">Reviewed</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="table-wrapper">
+                        <table class="data-table" aria-label="Contact messages and inquiries">
+                            <thead>
+                                <tr>
+                                    <th>Ref</th>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>Review Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-tbody"></tbody>
+                        </table>
+                    </div>
+                    <p class="empty-state hidden" id="msg-empty-state">No messages found.</p>
                 </div>
 
             </section>
@@ -261,6 +323,27 @@
                 <div class="modal-actions">
                     <button type="button" class="btn btn-secondary" id="delete-cancel">Cancel</button>
                     <button type="button" class="btn btn-danger" id="delete-confirm">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message Detail Modal -->
+        <div class="modal-overlay hidden" id="message-modal" role="dialog" aria-modal="true" aria-labelledby="message-modal-title">
+            <div class="modal modal-lg">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="message-modal-title">Message Details</h2>
+                    <button class="modal-close" id="message-modal-close" aria-label="Close modal">&times;</button>
+                </div>
+                <div class="msg-detail-body" id="msg-detail-body"></div>
+                <div class="modal-actions msg-modal-actions">
+                    <select id="msg-status-select" class="form-input msg-status-select" aria-label="Set review status">
+                        <option value="pending">Pending</option>
+                        <option value="reviewed">Reviewed</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                    <button type="button" class="btn btn-primary" id="msg-save-status">Update Status</button>
+                    <button type="button" class="btn btn-danger" id="msg-delete-btn">Delete</button>
+                    <button type="button" class="btn btn-secondary" id="message-modal-cancel">Close</button>
                 </div>
             </div>
         </div>

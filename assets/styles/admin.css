@@ -285,6 +285,7 @@ button {
 .bg-amber  { background: var(--admin-amber); }
 .bg-blue   { background: var(--admin-blue); }
 .bg-red    { background: var(--admin-danger); }
+.bg-purple { background: #8b5cf6; }
 
 .stat-label {
     font-size: 0.78rem;
@@ -441,6 +442,152 @@ button {
 .badge-oos {
     background: rgba(239, 68, 68, 0.12);
     color: #dc2626;
+}
+
+/* ---- Message / Inquiry Status Badges ---- */
+.badge-pending {
+    background: rgba(245, 158, 11, 0.12);
+    color: #b45309;
+}
+
+.badge-reviewed {
+    background: rgba(59, 130, 246, 0.12);
+    color: #1d4ed8;
+}
+
+.badge-resolved {
+    background: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+}
+
+/* ---- Inquiry Type Badges ---- */
+.msg-type-general {
+    background: rgba(59, 130, 246, 0.12);
+    color: #1d4ed8;
+}
+
+.msg-type-product {
+    background: rgba(139, 92, 246, 0.12);
+    color: #6d28d9;
+}
+
+.msg-type-complaint {
+    background: rgba(239, 68, 68, 0.12);
+    color: #dc2626;
+}
+
+/* ---- Sidebar Badge (pending count) ---- */
+.sidebar-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-left: auto;
+}
+
+.sidebar-badge.hidden {
+    display: none !important;
+}
+
+/* ---- Clickable stat card ---- */
+.stat-card-clickable {
+    cursor: pointer;
+}
+
+/* ---- View button ---- */
+.btn-icon-view {
+    color: var(--admin-blue);
+    background: rgba(59, 130, 246, 0.08);
+}
+
+.btn-icon-view:hover {
+    background: var(--admin-blue);
+    color: #fff;
+}
+
+/* ---- Message ref code ---- */
+.msg-ref {
+    font-size: 0.78rem;
+    background: var(--admin-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--admin-border);
+    font-family: monospace;
+    color: var(--admin-text-muted);
+}
+
+.msg-email {
+    font-size: 0.82rem;
+    color: var(--admin-text-muted);
+}
+
+.msg-date {
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+/* ---- Message Detail Modal ---- */
+.modal-lg {
+    max-width: 600px;
+}
+
+.msg-detail-body {
+    padding: 4px 22px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.msg-detail-row {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--admin-border);
+    font-size: 0.875rem;
+}
+
+.msg-detail-row:last-child {
+    border-bottom: none;
+}
+
+.msg-detail-row-full {
+    flex-direction: column;
+    gap: 4px;
+}
+
+.msg-detail-label {
+    font-weight: 600;
+    color: var(--admin-text-muted);
+    min-width: 130px;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.msg-detail-value {
+    color: var(--admin-text);
+    word-break: break-word;
+    line-height: 1.6;
+}
+
+.msg-modal-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.msg-status-select {
+    width: auto;
+    min-width: 140px;
+    padding: 7px 12px;
+    font-size: 0.875rem;
 }
 
 /* ---- Action Buttons in Table ---- */
