@@ -88,19 +88,36 @@
     }
 
     .hero-section .section-content {
-        gap: 50px;
+        gap: 40px;
         text-align: center;
-        padding: 30px 30px 20px;
+        padding: 100px 30px 100px;
         flex-direction: column-reverse;
+        align-items: center;
         justify-content: center;
     }
      .hero-section .hero-image-wrapper {
-        max-width: 270px;
+        flex: 0 0 auto;
+        max-width: 260px;
+        width: 260px;
         margin-right: 0;
+     }
+
+     .hero-section .hero-details {
+        flex: 0 0 auto;
+        width: 100%;
      }
 
      .hero-section .hero-details .title {
         font-size: 3rem;
+     }
+
+     .hero-title-bar {
+        margin-left: auto;
+        margin-right: auto;
+     }
+
+     .hero-bg-dots {
+        display: none;
      }
 
      .hero-section .hero-details :is(.subtitle), 
