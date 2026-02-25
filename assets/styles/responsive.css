@@ -88,24 +88,15 @@
     }
 
     .hero-section .section-content {
-        gap: 50px;
-        text-align: center;
-        padding: 30px 30px 20px;
-        flex-direction: column-reverse;
-        justify-content: center;
+        padding: 100px 30px 60px;
     }
-     .hero-section .hero-image-wrapper {
-        max-width: 270px;
-        margin-right: 0;
-     }
 
-     .hero-section .hero-details :is(.subtitle, .description), 
-     .about-section .about-details, .contact-section .emb-map {
+     .hero-section .hero-details .title {
+        font-size: 3.5rem;
+      }
+
+      .about-section .about-details, .contact-section .emb-map {
         max-width: 100%;
-     }
-     
-      .hero-section .hero-details .buttons {
-        justify-content: center;
       }
 
       .about-section .section-content {
@@ -126,10 +117,6 @@
 
       .about-stats-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-stats {
-        justify-content: center;
       }
 
       .menu-section .menu-list{
