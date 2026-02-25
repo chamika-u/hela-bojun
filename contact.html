@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Contact Us – Hela Bojun</title>
+
+        <!-- Preconnect -->
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="assets/styles/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="assets/styles/responsive.css">
+
+        <meta name="description" content="Contact Hela Bojun – Submit general inquiries, product inquiries, or complaints.">
+    </head>
+    <body>
+
+        <header>
+            <nav class="navbar section-content">
+                <a href="index.html" class="nav-logo">
+                    <h1 class="logo-text">හෙළ බොජුන්</h1>
+                </a>
+                <ul class="nav-menu" role="navigation" aria-label="Main navigation">
+                    <button type="button" id="menu-close-button" class="fas fa-times" aria-label="Close menu"></button>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="menu.html" class="nav-link">Menu</a></li>
+                    <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="contact.html" class="nav-link active-nav-link">Contact</a></li>
+                    <li><a href="login.html" class="nav-link nav-link-admin" aria-label="Admin Dashboard">Admin</a></li>
+                </ul>
+                <button type="button" id="menu-open-button" class="fas fa-bars" aria-label="Open menu"></button>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- Contact Page Hero -->
+            <section class="contact-page-hero">
+                <div class="section-content">
+                    <span class="hero-badge"><i class="fas fa-headset"></i> We're Here to Help</span>
+                    <h2 class="contact-page-title">Contact Us</h2>
+                    <p class="contact-page-subtitle">
+                        Have a question, product inquiry, or a complaint? We'd love to hear from you. Choose the type of inquiry below and we'll take care of it promptly.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Contact Info Bar -->
+            <section class="contact-info-bar">
+                <div class="section-content">
+                    <div class="cib-item">
+                        <div class="cib-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="cib-text">
+                            <span class="cib-label">Location</span>
+                            <span class="cib-value">Sabaragamuwa University of Sri Lanka</span>
+                        </div>
+                    </div>
+                    <div class="cib-divider"></div>
+                    <div class="cib-item">
+                        <div class="cib-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="cib-text">
+                            <span class="cib-label">Email</span>
+                            <span class="cib-value">helabojun@sab.ac.lk</span>
+                        </div>
+                    </div>
+                    <div class="cib-divider"></div>
+                    <div class="cib-item">
+                        <div class="cib-icon"><i class="fas fa-phone"></i></div>
+                        <div class="cib-text">
+                            <span class="cib-label">Phone</span>
+                            <span class="cib-value">+95 77 777 7777</span>
+                        </div>
+                    </div>
+                    <div class="cib-divider"></div>
+                    <div class="cib-item">
+                        <div class="cib-icon"><i class="fas fa-clock"></i></div>
+                        <div class="cib-text">
+                            <span class="cib-label">Hours</span>
+                            <span class="cib-value">Mon – Fri: 8:00 AM – 5:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inquiry Form Section -->
+            <section class="inquiry-form-section">
+                <div class="section-content">
+                    <div class="inquiry-form-wrapper">
+
+                        <!-- Progress Bar -->
+                        <div class="form-progress" id="form-progress" aria-label="Form progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <div class="progress-steps">
+                                <div class="progress-step active" data-step="1">
+                                    <div class="step-circle">1</div>
+                                    <span class="step-label">Inquiry Type</span>
+                                </div>
+                                <div class="progress-step" data-step="2">
+                                    <div class="step-circle">2</div>
+                                    <span class="step-label">Details</span>
+                                </div>
+                                <div class="progress-step" data-step="3">
+                                    <div class="step-circle">3</div>
+                                    <span class="step-label">Your Info</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="contact-form" novalidate>
+
+                            <!-- ── STEP 1: Choose Inquiry Type ────────────────────── -->
+                            <div class="form-step active" id="step-1">
+                                <h3 class="step-title">What can we help you with?</h3>
+                                <p class="step-subtitle">Select the type of inquiry to get started.</p>
+
+                                <div class="inquiry-type-grid" role="group" aria-labelledby="inquiry-type-label">
+                                    <span id="inquiry-type-label" class="sr-only">Choose inquiry type</span>
+
+                                    <label class="inquiry-type-card" for="type-general">
+                                        <input type="radio" name="inquiry_type" id="type-general" value="general" class="sr-only">
+                                        <div class="itc-icon bg-blue"><i class="fas fa-comments"></i></div>
+                                        <h4 class="itc-title">General Inquiries</h4>
+                                        <p class="itc-desc">Questions about menu, hours, location, pricing, services, or anything else.</p>
+                                        <span class="itc-check"><i class="fas fa-check-circle"></i></span>
+                                    </label>
+
+                                    <label class="inquiry-type-card" for="type-product">
+                                        <input type="radio" name="inquiry_type" id="type-product" value="product" class="sr-only">
+                                        <div class="itc-icon bg-amber"><i class="fas fa-utensils"></i></div>
+                                        <h4 class="itc-title">Product Inquiries</h4>
+                                        <p class="itc-desc">Questions or feedback specifically about one or more of our menu items.</p>
+                                        <span class="itc-check"><i class="fas fa-check-circle"></i></span>
+                                    </label>
+
+                                    <label class="inquiry-type-card" for="type-complaint">
+                                        <input type="radio" name="inquiry_type" id="type-complaint" value="complaint" class="sr-only">
+                                        <div class="itc-icon bg-red"><i class="fas fa-exclamation-circle"></i></div>
+                                        <h4 class="itc-title">Complaints</h4>
+                                        <p class="itc-desc">Report a complaint about our products, staff, facilities, or health &amp; hygiene.</p>
+                                        <span class="itc-check"><i class="fas fa-check-circle"></i></span>
+                                    </label>
+                                </div>
+
+                                <div class="step-error hidden" id="error-step1" role="alert">
+                                    <i class="fas fa-exclamation-triangle"></i> Please select an inquiry type to continue.
+                                </div>
+
+                                <div class="step-actions">
+                                    <button type="button" class="btn-next" id="btn-next-1">Next <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- ── STEP 2: Dynamic Sub-Category ───────────────────── -->
+                            <div class="form-step" id="step-2">
+
+                                <!-- 2A: General Inquiries -->
+                                <div class="substep hidden" id="substep-general">
+                                    <h3 class="step-title">What is your inquiry about?</h3>
+                                    <p class="step-subtitle">Select the topic that best matches your question.</p>
+
+                                    <div class="option-list" role="group" aria-label="General inquiry topics">
+                                        <label class="option-card" for="gen-menu">
+                                            <input type="radio" name="general_issue" id="gen-menu" value="menu_info" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-book-open"></i></span>
+                                            <span class="option-text">Menu &amp; food information</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="gen-hours">
+                                            <input type="radio" name="general_issue" id="gen-hours" value="hours_location" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-clock"></i></span>
+                                            <span class="option-text">Operating hours &amp; location</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="gen-pricing">
+                                            <input type="radio" name="general_issue" id="gen-pricing" value="pricing_payment" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-wallet"></i></span>
+                                            <span class="option-text">Pricing &amp; payment options</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="gen-reservation">
+                                            <input type="radio" name="general_issue" id="gen-reservation" value="reservation_bulk" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-calendar-alt"></i></span>
+                                            <span class="option-text">Reservation or bulk order</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="gen-digital">
+                                            <input type="radio" name="general_issue" id="gen-digital" value="website_digital" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-laptop"></i></span>
+                                            <span class="option-text">Website or digital services</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="gen-other">
+                                            <input type="radio" name="general_issue" id="gen-other" value="other" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-ellipsis-h"></i></span>
+                                            <span class="option-text">Other</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="other-specify hidden" id="general-other-text">
+                                        <label class="field-label" for="general_other_detail">Please specify your inquiry</label>
+                                        <input type="text" id="general_other_detail" name="general_other_detail" class="form-input" placeholder="Describe your inquiry briefly…" maxlength="200">
+                                    </div>
+
+                                    <div class="step-error hidden" id="error-step2-general" role="alert">
+                                        <i class="fas fa-exclamation-triangle"></i> Please select an issue category.
+                                    </div>
+                                </div>
+
+                                <!-- 2B: Product Inquiries -->
+                                <div class="substep hidden" id="substep-product">
+                                    <h3 class="step-title">Product Inquiry Details</h3>
+                                    <p class="step-subtitle">Select the product(s) you are inquiring about, then choose the issue type.</p>
+
+                                    <h4 class="subsection-label"><i class="fas fa-shopping-basket"></i> Select Product(s) <span class="required-badge">Required</span></h4>
+                                    <div class="product-grid" id="product-grid-inquiry" role="group" aria-label="Select products for inquiry">
+                                        <!-- Rendered by JS -->
+                                    </div>
+
+                                    <h4 class="subsection-label" style="margin-top:28px"><i class="fas fa-question-circle"></i> What is your inquiry about?</h4>
+                                    <div class="option-list" role="group" aria-label="Product issue types">
+                                        <label class="option-card" for="prod-quality">
+                                            <input type="radio" name="product_issue" id="prod-quality" value="quality_taste" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-star"></i></span>
+                                            <span class="option-text">Quality &amp; taste</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="prod-fresh">
+                                            <input type="radio" name="product_issue" id="prod-fresh" value="freshness_ingredients" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-leaf"></i></span>
+                                            <span class="option-text">Freshness &amp; ingredients</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="prod-portion">
+                                            <input type="radio" name="product_issue" id="prod-portion" value="portion_size" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-balance-scale"></i></span>
+                                            <span class="option-text">Portion size</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="prod-allergen">
+                                            <input type="radio" name="product_issue" id="prod-allergen" value="allergen_info" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-allergies"></i></span>
+                                            <span class="option-text">Allergen &amp; ingredients info</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="prod-avail">
+                                            <input type="radio" name="product_issue" id="prod-avail" value="availability" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-check-circle"></i></span>
+                                            <span class="option-text">Availability inquiry</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="prod-price">
+                                            <input type="radio" name="product_issue" id="prod-price" value="pricing" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-tag"></i></span>
+                                            <span class="option-text">Pricing concern</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                        <label class="option-card" for="prod-pack">
+                                            <input type="radio" name="product_issue" id="prod-pack" value="packaging" class="sr-only">
+                                            <span class="option-icon"><i class="fas fa-box"></i></span>
+                                            <span class="option-text">Packaging concern</span>
+                                            <span class="option-check"><i class="fas fa-check"></i></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="step-error hidden" id="error-step2-product" role="alert">
+                                        <i class="fas fa-exclamation-triangle"></i> Please select at least one product and an issue type.
+                                    </div>
+                                </div>
+
+                                <!-- 2C: Complaints – category selection -->
+                                <div class="substep hidden" id="substep-complaint">
+                                    <h3 class="step-title">What is your complaint about?</h3>
+                                    <p class="step-subtitle">Select the category that best describes your complaint.</p>
+
+                                    <div class="complaint-cat-grid" role="group" aria-label="Complaint categories">
+
+                                        <label class="complaint-cat-card" for="comp-product">
+                                            <input type="radio" name="complaint_category" id="comp-product" value="product" class="sr-only">
+                                            <div class="ccc-icon bg-amber"><i class="fas fa-utensils"></i></div>
+                                            <h4 class="ccc-title">Product Related</h4>
+                                            <p class="ccc-desc">Complaint about a specific food or beverage item.</p>
+                                            <span class="itc-check"><i class="fas fa-check-circle"></i></span>
+                                        </label>
+
+                                        <label class="complaint-cat-card" for="comp-staff">
+                                            <input type="radio" name="complaint_category" id="comp-staff" value="staff" class="sr-only">
+                                            <div class="ccc-icon bg-blue"><i class="fas fa-user-tie"></i></div>
+                                            <h4 class="ccc-title">Staff / Workers</h4>
+                                            <p class="ccc-desc">Complaint about behavior, service, or conduct of our staff.</p>
+                                            <span class="itc-check"><i class="fas fa-check-circle"></i></span>
+                                        </label>
+
+                                        <label class="complaint-cat-card" for="comp-place">
+                                            <input type="radio" name="complaint_category" id="comp-place" value="place" class="sr-only">
+                                            <div class="ccc-icon bg-green"><i class="fas fa-building"></i></div>
+                                            <h4 class="ccc-title">Place, Parking &amp; Infrastructure</h4>
+                                            <p class="ccc-desc">Complaint about facilities, seating, parking, or building.</p>
+                                            <span class="itc-check"><i class="fas fa-check-circle"></i></span>
+                                        </label>
+
+                                        <label class="complaint-cat-card" for="comp-health">
+                                            <input type="radio" name="complaint_category" id="comp-health" value="health" class="sr-only">
+                                            <div class="ccc-icon bg-red"><i class="fas fa-heartbeat"></i></div>
+                                            <h4 class="ccc-title">Health &amp; Hygiene</h4>
+                                            <p class="ccc-desc">Complaint about food safety, cleanliness, or sanitation.</p>
+                                            <span class="itc-check"><i class="fas fa-check-circle"></i></span>
+                                        </label>
+
+                                    </div>
+
+                                    <!-- Complaint sub-options (shown dynamically) -->
+
+                                    <!-- Product complaint sub -->
+                                    <div class="complaint-sub hidden" id="comp-sub-product">
+                                        <h4 class="subsection-label"><i class="fas fa-shopping-basket"></i> Select Product(s) <span class="required-badge">Required</span></h4>
+                                        <div class="product-grid" id="product-grid-complaint" role="group" aria-label="Select products for complaint">
+                                            <!-- Rendered by JS -->
+                                        </div>
+                                        <h4 class="subsection-label" style="margin-top:24px"><i class="fas fa-flag"></i> Complaint Type</h4>
+                                        <div class="option-list" role="group" aria-label="Product complaint types">
+                                            <label class="option-card" for="comp-prod-quality">
+                                                <input type="radio" name="comp_product_issue" id="comp-prod-quality" value="poor_quality" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-thumbs-down"></i></span>
+                                                <span class="option-text">Poor quality or taste</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-prod-stale">
+                                                <input type="radio" name="comp_product_issue" id="comp-prod-stale" value="stale_food" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-times-circle"></i></span>
+                                                <span class="option-text">Stale or expired food</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-prod-foreign">
+                                                <input type="radio" name="comp_product_issue" id="comp-prod-foreign" value="foreign_object" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-exclamation-triangle"></i></span>
+                                                <span class="option-text">Foreign object found in food</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-prod-mislabel">
+                                                <input type="radio" name="comp_product_issue" id="comp-prod-mislabel" value="mislabeled" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-tag"></i></span>
+                                                <span class="option-text">Wrong item or mislabeled</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-prod-price">
+                                                <input type="radio" name="comp_product_issue" id="comp-prod-price" value="overcharged" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-receipt"></i></span>
+                                                <span class="option-text">Overcharged / wrong price</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Staff complaint sub -->
+                                    <div class="complaint-sub hidden" id="comp-sub-staff">
+                                        <h4 class="subsection-label"><i class="fas fa-flag"></i> What is the issue with staff?</h4>
+                                        <div class="option-list" role="group" aria-label="Staff complaint types">
+                                            <label class="option-card" for="comp-staff-rude">
+                                                <input type="radio" name="comp_staff_issue" id="comp-staff-rude" value="rude_behavior" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-angry"></i></span>
+                                                <span class="option-text">Rude or inappropriate behavior</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-staff-hygiene">
+                                                <input type="radio" name="comp_staff_issue" id="comp-staff-hygiene" value="staff_hygiene" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-soap"></i></span>
+                                                <span class="option-text">Poor personal hygiene</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-staff-slow">
+                                                <input type="radio" name="comp_staff_issue" id="comp-staff-slow" value="slow_service" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-hourglass-half"></i></span>
+                                                <span class="option-text">Slow or poor service</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-staff-wrong">
+                                                <input type="radio" name="comp_staff_issue" id="comp-staff-wrong" value="wrong_order" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-times"></i></span>
+                                                <span class="option-text">Wrong order or mistake</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-staff-unprofessional">
+                                                <input type="radio" name="comp_staff_issue" id="comp-staff-unprofessional" value="unprofessional" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-user-slash"></i></span>
+                                                <span class="option-text">Unprofessional conduct</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Place / Infrastructure complaint sub -->
+                                    <div class="complaint-sub hidden" id="comp-sub-place">
+                                        <h4 class="subsection-label"><i class="fas fa-flag"></i> What is the issue with the place?</h4>
+                                        <div class="option-list" role="group" aria-label="Place complaint types">
+                                            <label class="option-card" for="comp-place-parking">
+                                                <input type="radio" name="comp_place_issue" id="comp-place-parking" value="parking" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-parking"></i></span>
+                                                <span class="option-text">Parking facilities</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-place-seating">
+                                                <input type="radio" name="comp_place_issue" id="comp-place-seating" value="seating" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-chair"></i></span>
+                                                <span class="option-text">Insufficient seating</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-place-clean">
+                                                <input type="radio" name="comp_place_issue" id="comp-place-clean" value="cleanliness" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-broom"></i></span>
+                                                <span class="option-text">Cleanliness of premises</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-place-infra">
+                                                <input type="radio" name="comp_place_issue" id="comp-place-infra" value="infrastructure" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-tools"></i></span>
+                                                <span class="option-text">Building or infrastructure issue</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-place-access">
+                                                <input type="radio" name="comp_place_issue" id="comp-place-access" value="accessibility" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-wheelchair"></i></span>
+                                                <span class="option-text">Accessibility concerns</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Health / Hygiene complaint sub -->
+                                    <div class="complaint-sub hidden" id="comp-sub-health">
+                                        <h4 class="subsection-label"><i class="fas fa-flag"></i> What is the health or hygiene concern?</h4>
+                                        <div class="option-list" role="group" aria-label="Health complaint types">
+                                            <label class="option-card" for="comp-health-safety">
+                                                <input type="radio" name="comp_health_issue" id="comp-health-safety" value="food_safety" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-shield-alt"></i></span>
+                                                <span class="option-text">Food safety concern</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-health-env">
+                                                <input type="radio" name="comp_health_issue" id="comp-health-env" value="environment_hygiene" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-wind"></i></span>
+                                                <span class="option-text">Environment hygiene</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-health-sanitation">
+                                                <input type="radio" name="comp_health_issue" id="comp-health-sanitation" value="sanitation" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-soap"></i></span>
+                                                <span class="option-text">Sanitation of facilities</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-health-contam">
+                                                <input type="radio" name="comp_health_issue" id="comp-health-contam" value="contamination" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-biohazard"></i></span>
+                                                <span class="option-text">Suspected contamination</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                            <label class="option-card" for="comp-health-pests">
+                                                <input type="radio" name="comp_health_issue" id="comp-health-pests" value="pests" class="sr-only">
+                                                <span class="option-icon"><i class="fas fa-bug"></i></span>
+                                                <span class="option-text">Pest or rodent presence</span>
+                                                <span class="option-check"><i class="fas fa-check"></i></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-error hidden" id="error-step2-complaint" role="alert">
+                                        <i class="fas fa-exclamation-triangle"></i> Please complete all required selections.
+                                    </div>
+                                </div>
+
+                                <div class="step-actions">
+                                    <button type="button" class="btn-back" id="btn-back-2"><i class="fas fa-arrow-left"></i> Back</button>
+                                    <button type="button" class="btn-next" id="btn-next-2">Next <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- ── STEP 3: Personal Details ────────────────────────── -->
+                            <div class="form-step" id="step-3">
+                                <h3 class="step-title">Your Contact Information</h3>
+                                <p class="step-subtitle">Please provide your details so we can get back to you.</p>
+
+                                <div class="form-fields">
+                                    <div class="field-group">
+                                        <label class="field-label" for="full_name">Full Name <span class="required-badge">Required</span></label>
+                                        <input type="text" id="full_name" name="full_name" class="form-input" placeholder="e.g. Nadeesha Perera" maxlength="100" autocomplete="name">
+                                        <span class="field-error hidden" id="err-name">Please enter your full name.</span>
+                                    </div>
+
+                                    <div class="field-group">
+                                        <label class="field-label" for="email">Email Address <span class="required-badge">Required</span></label>
+                                        <input type="email" id="email" name="email" class="form-input" placeholder="e.g. student@sab.ac.lk" maxlength="150" autocomplete="email">
+                                        <span class="field-error hidden" id="err-email">Please enter a valid email address.</span>
+                                    </div>
+
+                                    <div class="field-group">
+                                        <label class="field-label" for="phone">Phone Number <span class="optional-badge">Optional</span></label>
+                                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. +94 77 000 0000" maxlength="20" autocomplete="tel">
+                                        <span class="field-error hidden" id="err-phone">Please enter a valid phone number.</span>
+                                    </div>
+
+                                    <div class="field-group">
+                                        <label class="field-label" for="message">Message <span class="required-badge">Required</span></label>
+                                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Please describe your inquiry or complaint in detail…" maxlength="1000" rows="5"></textarea>
+                                        <div class="char-count"><span id="char-count">0</span> / 1000</div>
+                                        <span class="field-error hidden" id="err-message">Please enter your message (at least 10 characters).</span>
+                                    </div>
+
+                                    <!-- Inquiry Summary -->
+                                    <div class="inquiry-summary" id="inquiry-summary">
+                                        <h4 class="summary-title"><i class="fas fa-clipboard-list"></i> Inquiry Summary</h4>
+                                        <div class="summary-body" id="summary-body">
+                                            <!-- Filled by JS -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step-actions">
+                                    <button type="button" class="btn-back" id="btn-back-3"><i class="fas fa-arrow-left"></i> Back</button>
+                                    <button type="submit" class="btn-submit" id="btn-submit">
+                                        <i class="fas fa-paper-plane"></i> Submit Inquiry
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ── STEP 4: Success ─────────────────────────────────── -->
+                            <div class="form-step" id="step-success">
+                                <div class="success-screen">
+                                    <div class="success-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <h3 class="success-title">Thank You!</h3>
+                                    <p class="success-message" id="success-message">Your inquiry has been submitted. Our team will review it and get back to you within 1–2 business days.</p>
+                                    <div class="success-ref">
+                                        Reference: <strong id="success-ref"></strong>
+                                    </div>
+                                    <button type="button" class="btn-next" id="btn-new-inquiry" style="margin-top:28px">
+                                        <i class="fas fa-plus"></i> Submit Another Inquiry
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <div class="footer-top">
+                <div class="section-content">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">හෙළ බොජුන්</a>
+                        <p class="footer-tagline">Authentic Sri Lankan flavors served with love at Sabaragamuwa University of Sri Lanka. Fresh ingredients, traditional recipes, campus pride.</p>
+                        <div class="social-link-list">
+                            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Quick Links</h4>
+                        <div class="footer-links">
+                            <a href="index.html">Home</a>
+                            <a href="about.html">About Us</a>
+                            <a href="menu.html">Menu</a>
+                            <a href="index.html#testimonials">Testimonials</a>
+                            <a href="index.html#gallery">Gallery</a>
+                            <a href="contact.html">Contact</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Contact Us</h4>
+                        <ul class="footer-contact-list">
+                            <li class="footer-contact-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Sabaragamuwa University of Sri Lanka</span>
+                            </li>
+                            <li class="footer-contact-item">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>helabojun@sab.ac.lk</span>
+                            </li>
+                            <li class="footer-contact-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+95 77 777 7777</span>
+                            </li>
+                            <li class="footer-contact-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>Mon – Fri: 8:00 AM – 5:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="section-content">
+                    <p class="copyright-text">&copy; 2025 Hela Bojun. All rights reserved.</p>
+                    <p class="policy-text">
+                        <a href="assets/policies/privacy-policy.pdf" class="policy-link">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="assets/policies/refund-policy.pdf" class="policy-link">Refund Policy</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Data script (for menu items) -->
+        <script src="assets/scripts/data.js"></script>
+        <!-- Contact page script -->
+        <script src="assets/scripts/contact.js"></script>
+    </body>
+</html>
