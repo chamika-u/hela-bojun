@@ -72,13 +72,27 @@ document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.obse
 const lightboxOverlay = document.getElementById('lightbox-overlay');
 const lightboxImg = lightboxOverlay ? lightboxOverlay.querySelector('.lightbox-img') : null;
 const lightboxClose = lightboxOverlay ? lightboxOverlay.querySelector('.lightbox-close') : null;
+const lightboxPrev = lightboxOverlay ? lightboxOverlay.querySelector('.lightbox-prev') : null;
+const lightboxNext = lightboxOverlay ? lightboxOverlay.querySelector('.lightbox-next') : null;
+const lightboxCounter = lightboxOverlay ? lightboxOverlay.querySelector('.lightbox-counter') : null;
 
-function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
+const galleryImages = Array.from(document.querySelectorAll('.gallery-image'));
+let currentGalleryIndex = 0;
+
+function openLightbox(index) {
+    currentGalleryIndex = index;
+    const img = galleryImages[index];
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    if (lightboxCounter) lightboxCounter.textContent = `${index + 1} / ${galleryImages.length}`;
     lightboxOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
     lightboxClose.focus();
+}
+
+function navigateGallery(direction) {
+    currentGalleryIndex = (currentGalleryIndex + direction + galleryImages.length) % galleryImages.length;
+    openLightbox(currentGalleryIndex);
 }
 
 function closeLightbox() {
@@ -86,12 +100,12 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
-document.querySelectorAll('.gallery-image').forEach(img => {
-    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => openLightbox(index));
     img.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            openLightbox(img.src, img.alt);
+            openLightbox(index);
         }
     });
 });
@@ -100,12 +114,18 @@ if (lightboxClose) {
     lightboxClose.addEventListener('click', closeLightbox);
 }
 
+if (lightboxPrev) lightboxPrev.addEventListener('click', () => navigateGallery(-1));
+if (lightboxNext) lightboxNext.addEventListener('click', () => navigateGallery(1));
+
 if (lightboxOverlay) {
     lightboxOverlay.addEventListener('click', (e) => {
         if (e.target === lightboxOverlay) closeLightbox();
     });
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightboxOverlay.classList.contains('active')) closeLightbox();
+        if (!lightboxOverlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateGallery(-1);
+        if (e.key === 'ArrowRight') navigateGallery(1);
     });
 }
 
