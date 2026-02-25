@@ -290,26 +290,3 @@
     }
 }
 
-
-/* New contact section responsive */
-@media screen and (max-width: 900px) {
-    .contact-section-body .section-content {
-        grid-template-columns: 1fr;
-    }
-    .contact-map-col {
-        position: static;
-    }
-    .contact-map-wrapper {
-        aspect-ratio: 16 / 9;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .contact-section-cta-card {
-        flex-direction: column;
-        text-align: center;
-    }
-    .contact-section-title {
-        font-size: 1.8rem;
-    }
-}
