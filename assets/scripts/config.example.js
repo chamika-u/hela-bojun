@@ -4,8 +4,13 @@
 // To generate a SHA-256 password hash run:
 //   echo -n "yourpassword" | sha256sum
 // Never commit config.js to version control.
+//
+// ⚠️  DEMO credentials — change these before deploying to production!
+//   Username : admin
+//   Password : admin123
+//   The hash below is SHA-256("admin123")
 
 window.APP_CONFIG = {
     adminUsername: 'admin',
-    adminPasswordHash: '6b3a55e0261b0304143f805a24924d0c1c44524821305f31d9277843b8a10f4e'
+    adminPasswordHash: '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9'
 };
