@@ -36,10 +36,11 @@ function renderMenuItems() {
     if (!menuList) return;
 
     const items = seedMenuItems();
-    const availableItems = items.filter(item => item.status === 'available');
+    // Best Selling shows all items regardless of availability status
+    const bestSellingItems = items;
 
     menuList.innerHTML = '';
-    availableItems.forEach(item => {
+    bestSellingItems.forEach(item => {
         const li = document.createElement('li');
         li.className = 'menu-item reveal-on-scroll';
         li.innerHTML = `

@@ -716,6 +716,108 @@ button {
     display: none !important;
 }
 
+/* ---- Login Page ---- */
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--admin-primary) 0%, #0a1f12 100%);
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--admin-card-bg);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-logo-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--admin-primary);
+    margin-bottom: 6px;
+}
+
+.login-subtitle {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.login-form {
+    margin-bottom: 20px;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+    pointer-events: none;
+}
+
+.input-padded {
+    padding-left: 36px !important;
+    padding-right: 36px !important;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 10px;
+    color: var(--admin-text-muted);
+    font-size: 0.82rem;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color var(--transition);
+}
+
+.toggle-password-btn:hover {
+    color: var(--admin-primary);
+}
+
+.login-submit-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px;
+    font-size: 0.95rem;
+    margin-top: 4px;
+    border-radius: 8px;
+}
+
+.login-back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--admin-text-muted);
+    transition: color var(--transition);
+    text-decoration: none;
+}
+
+.login-back:hover {
+    color: var(--admin-primary);
+}
+
 /* ---- Responsive ---- */
 @media screen and (max-width: 768px) {
     .sidebar {

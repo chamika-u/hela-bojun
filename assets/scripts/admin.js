@@ -2,6 +2,11 @@
 // Admin Dashboard Logic – Hela Bojun
 // ============================================================
 
+// ---- Auth Guard ----
+if (!isAdminLoggedIn()) {
+    window.location.href = 'login.html';
+}
+
 // ---- Section Navigation ----
 const sidebar = document.getElementById('sidebar');
 const adminMain = document.getElementById('admin-main');
@@ -53,6 +58,12 @@ topbarMenuBtn.addEventListener('click', handleSidebarToggle);
 const dashGoProducts = document.getElementById('dash-go-products');
 if (dashGoProducts) {
     dashGoProducts.addEventListener('click', () => setActiveSection('products'));
+}
+
+// ---- Logout ----
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', adminLogout);
 }
 
 // ---- Data Initialization ----

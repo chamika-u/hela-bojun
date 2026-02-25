@@ -152,5 +152,26 @@
         flex-direction: column;
         gap: 20px;
     }
+
+    /* Menu page responsive */
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-filter-bar {
+        gap: 8px;
+    }
+
+    .filter-tab {
+        padding: 7px 16px;
+        font-size: 0.82rem;
+    }
+}
+
+/* Menu page responsive for 900px */
+@media screen and (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
