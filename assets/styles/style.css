@@ -464,39 +464,178 @@ header .navbar {
 }
 
 /* Footer Section Styles */
+/* ---- Footer ---- */
 footer {
     background: var(--dark-color);
-    padding: 20px 0;
+    padding: 0;
 }
 
-.footer-section .social-link-list {
+.footer-top {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-top .section-content {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+.footer-brand .footer-logo {
+    font-family: 'Miniver', cursive;
+    font-size: var(--font-size-xl);
+    color: var(--secondary-color);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 14px;
+}
+
+.footer-brand .footer-tagline {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: var(--font-size-s);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 310px;
+}
+
+.footer-brand .social-link-list {
     display: flex;
-    gap: 25px;
+    gap: 12px;
 }
 
-.footer-section .social-link-list .social-link{
-    font-size: var(--font-size-l);  
-    transition: 0.2s ease;
+.footer-brand .social-link-list .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-circle);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white-color);
+    font-size: 0.95rem;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-.footer-section .section-content {
+.footer-brand .social-link-list .social-link:hover {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+}
+
+.footer-col-title {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semi-bold);
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-col-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-s);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a::before {
+    content: "\f054";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.65rem;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+    padding-left: 4px;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+}
+
+.footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-s);
+    line-height: 1.5;
+}
+
+.footer-contact-item i {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 16px;
+}
+
+.footer-bottom {
+    padding: 18px 0;
+}
+
+.footer-bottom .section-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
 }
-.footer-section .social-link-list .social-link:hover, 
-.footer-section .policy-text .policy-link:hover{
+
+.footer-bottom .copyright-text {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: var(--font-size-s);
+}
+
+.footer-bottom .policy-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-bottom .policy-link {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: var(--font-size-s);
+    transition: color 0.2s ease;
+}
+
+.footer-bottom .policy-link:hover {
     color: var(--secondary-color);
 }
 
-
-.footer-section .policy-text .separator  {
-    margin: 0 5px;
-    color: var(--white-color);
-}
-
-.footer-section :where(.copyright-text, .social-link, .policy-link) {
-    color: var(--white-color);
+.footer-bottom .policy-text .separator {
+    color: rgba(255, 255, 255, 0.3);
 }
 
 /* ---- Hero Badge ---- */
