@@ -681,6 +681,12 @@ header .navbar {
 .contact-section .emb-map {
     max-width: 50%;
 }
+
+.contact-section .emb-map .map-iframe {
+    width: 100%;
+    display: block;
+    border: none;
+}
 .contact-section .emb-map .form-input:focus {
     border-color: var(--secondary-color);
 }
