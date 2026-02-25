@@ -6,6 +6,23 @@
     .menu-section .menu-list .menu-item{
         width: calc(100% / 2 - 60px);
     }
+
+    /* Timeline: switch to single column at 1024 */
+    .timeline::before {
+        left: 22px;
+    }
+    .timeline-item,
+    .timeline-left,
+    .timeline-right {
+        flex-direction: row;
+    }
+    .timeline-left .timeline-content,
+    .timeline-right .timeline-content {
+        margin-left: 20px;
+        margin-right: 0;
+        text-align: left;
+        max-width: 100%;
+    }
 }
 
 
@@ -103,6 +120,18 @@
         aspect-ratio: 1;
       }
 
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
       .menu-section .menu-list{
         gap: 30px;
     }
@@ -151,6 +180,37 @@
     .footer-section .section-content {
         flex-direction: column;
         gap: 20px;
+    }
+
+    /* About page responsive */
+    .timeline::before {
+        left: 22px;
+    }
+    .timeline-item,
+    .timeline-left,
+    .timeline-right {
+        flex-direction: row;
+    }
+    .timeline-left .timeline-content,
+    .timeline-right .timeline-content {
+        margin-left: 20px;
+        margin-right: 0;
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
 
     /* Menu page responsive */

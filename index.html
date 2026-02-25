@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <title>Hela Bojun</title>
+        <title>Hela Bojun – Authentic Sri Lankan Cuisine</title>
 
         <!-- Preconnect to external origins for faster loading -->
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -37,7 +37,7 @@
                     <button type="button" id="menu-close-button" class="fas fa-times" aria-label="Close menu"></button>
                     <!--nav items-->
                     <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
                     <li><a href="menu.html" class="nav-link">Menu</a></li>
                     <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
                     <li><a href="#gallery" class="nav-link">Gallery</a></li>
@@ -55,27 +55,80 @@
             <section class="hero-section" id="home">
                 <div class="section-content">
                     <div class="hero-details">
+                        <span class="hero-badge"><i class="fas fa-leaf"></i> 100% Natural Ingredients</span>
                         <h2 class="title">Hela Bojun</h2>
                         <h3 class="subtitle">Authentic Sri Lankan flavors, right on campus!</h3>
                         <p class="description">
                             Discover the taste of tradition with our selection of Sri Lankan dishes, beverages, sweets, and short eats—prepared with fresh, healthy ingredients only.
                         </p>
                         <div class="buttons">
-                            <a href="menu.html" class="button order-now">Order Now</a>
+                            <a href="menu.html" class="button order-now">Explore Menu</a>
                             <a href="#contact" class="button contact-us">Contact Us</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <span class="hero-stat-value">500+</span>
+                                <span class="hero-stat-label">Daily Customers</span>
+                            </div>
+                            <div class="hero-stat-divider"></div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value">30+</span>
+                                <span class="hero-stat-label">Menu Items</span>
+                            </div>
+                            <div class="hero-stat-divider"></div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value">5★</span>
+                                <span class="hero-stat-label">Campus Rating</span>
+                            </div>
                         </div>
                     </div>
                     <div class="hero-image-wrapper">
-                        <img src="assets/images/hero-section.png" alt="Hero" class="hero-image">
-
+                        <img src="assets/images/hero-section.png" alt="Sri Lankan food spread" class="hero-image">
                     </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section" id="features">
+                <div class="section-content">
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <div class="features-grid">
+                        <div class="feature-card reveal-on-scroll">
+                            <div class="feature-icon bg-green">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="feature-title">Fresh &amp; Natural</h3>
+                            <p class="feature-text">Every dish is prepared daily using only fresh, natural, and locally sourced ingredients — no artificial additives.</p>
+                        </div>
+                        <div class="feature-card reveal-on-scroll">
+                            <div class="feature-icon bg-amber">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="feature-title">Authentic Recipes</h3>
+                            <p class="feature-text">Our chefs follow time-honored Sri Lankan recipes passed down through generations, bringing true traditional flavors to your plate.</p>
+                        </div>
+                        <div class="feature-card reveal-on-scroll">
+                            <div class="feature-icon bg-blue">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <h3 class="feature-title">Affordable Prices</h3>
+                            <p class="feature-text">Enjoy wholesome, nutritious meals at student-friendly prices — quality food shouldn't cost a fortune.</p>
+                        </div>
+                        <div class="feature-card reveal-on-scroll">
+                            <div class="feature-icon bg-red">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="feature-title">Made with Love</h3>
+                            <p class="feature-text">We care about the wellbeing of every student. Each meal is prepared with warmth, cleanliness, and dedication.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- About Section -->
             <section class="about-section" id="about">
                 <div class="section-content">
                    <div class="about-image-wrapper">
-                    <img src="assets/images/about-image.jpg" alt="About" class="about-image" loading="lazy">
+                    <img src="assets/images/about-image.jpg" alt="Hela Bojun cafeteria" class="about-image" loading="lazy">
                    </div>
                    <div class="about-details">
                     <h2 class="section-title">About Us</h2>
@@ -84,10 +137,11 @@
                         Our mission is to serve wholesome dishes, beverages, sweets, and short eats made only with healthy, natural ingredients. 
                         Enjoy a welcoming space where tradition meets taste, and every meal feels like home.
                     </p>
+                    <a href="about.html" class="button order-now about-learn-btn">Learn Our Story <i class="fas fa-arrow-right"></i></a>
                     <div class="social-link-list">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                    </div>
                 </div>
@@ -100,53 +154,70 @@
                     <ul class="menu-list" id="menu-list" aria-label="Menu items">
                     <!-- Dynamically rendered by script.js from LocalStorage -->
                     </ul>
-                
+                    <div class="menu-section-cta">
+                        <a href="menu.html" class="button menu-view-all">View Full Menu <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </section>
 
             <!-- Testimonials Section-->
             <section class="testimonials-section" id="testimonials">
-                <h2 class="section-title">Testimonials</h2>
+                <h2 class="section-title">What Students Say</h2>
                 <div class="section-content">
                     <div class="slider-container swiper">
                         <div class="slider-wrapper">
                             <ul class="testimonials-list swiper-wrapper">
                                 
                                 <li class="testimonial swiper-slide">
-                                    <img src="assets/images/user-1.jpg" alt="User 1" class="user-image" loading="lazy">
+                                    <img src="assets/images/user-1.jpg" alt="Nadeesha Perera" class="user-image" loading="lazy">
                                     <h3 class="name">Nadeesha Perera</h3>
+                                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
                                     <i class="feedback">
                                         "The Rice and Curry was absolutely delicious! Perfect balance of flavors and so fresh." 
                                     </i>
                                 </li>
 
                                  <li class="testimonial swiper-slide">
-                                    <img src="assets/images/user-2.jpg" alt="User 2" class="user-image" loading="lazy">
+                                    <img src="assets/images/user-2.jpg" alt="Chamath Fernando" class="user-image" loading="lazy">
                                     <h3 class="name">Chamath Fernando</h3>
+                                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
                                     <i class="feedback">
                                         "Loved the String Hoppers with coconut sambol. Authentic taste just like home!"
                                     </i>
                                 </li>
 
                                  <li class="testimonial swiper-slide">
-                                    <img src="assets/images/user-3.jpg" alt="User 3" class="user-image" loading="lazy">
+                                    <img src="assets/images/user-3.jpg" alt="Dilani Jayasinghe" class="user-image" loading="lazy">
                                     <h3 class="name">Dilani Jayasinghe</h3>
+                                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
                                     <i class="feedback">
                                         "The Ulundu Vadai was crispy and flavorful. A perfect snack for any time of day!"
                                     </i>
                                 </li>
 
                                  <li class="testimonial swiper-slide">
-                                    <img src="assets/images/user-4.jpg" alt="User 4" class="user-image" loading="lazy">
+                                    <img src="assets/images/user-4.jpg" alt="Sajith Wickramasinghe" class="user-image" loading="lazy">
                                     <h3 class="name">Sajith Wickramasinghe</h3>
+                                    <div class="testimonial-stars" aria-label="4 out of 5 stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                    </div>
                                     <i class="feedback">
                                         "Loved the Kiribath with LunSu Miris. A true taste of Sri Lankan tradition!" 
                                     </i>
                                 </li>
 
                                  <li class="testimonial swiper-slide">
-                                    <img src="assets/images/user-5.jpg" alt="User 5" class="user-image" loading="lazy">
+                                    <img src="assets/images/user-5.jpg" alt="Tharushi Silva" class="user-image" loading="lazy">
                                     <h3 class="name">Tharushi Silva</h3>
+                                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
                                     <i class="feedback">
                                         "Pani Walalu was crispy and soaked in perfect sweetness!"
                                     </i>
