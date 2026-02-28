@@ -1,3 +1,6 @@
 # Sensitive configuration – never commit real credentials
 .env
-assets/scripts/config.js
+frontend/assets/scripts/config.js
+
+# Backend dependencies
+backend/node_modules/

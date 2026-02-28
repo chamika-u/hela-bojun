@@ -51,7 +51,7 @@ A modern, responsive website for **Hela Bojun**, the cafeteria at **Sabaragamuwa
 ## 📸 Screenshots
 
 ### Home Page
-![Home](assets/images/screenshot.png)
+![Home](frontend/assets/images/screenshot.png)
 
 ---
 
@@ -71,28 +71,36 @@ A modern, responsive website for **Hela Bojun**, the cafeteria at **Sabaragamuwa
 
 ```
 hela-bojun/
-├── index.html                  # Main landing page
-├── menu.html                   # Full menu page
-├── login.html                  # Admin login page
-├── admin.html                  # Admin dashboard
-├── assets/
-│   ├── images/                 # All image assets
-│   ├── scripts/
-│   │   ├── data.js             # Menu data model + localStorage CRUD
-│   │   ├── script.js           # Home page interactions (navbar, swiper, lightbox)
-│   │   ├── menu.js             # Menu page rendering + category filters
-│   │   ├── auth.js             # Admin authentication logic
-│   │   ├── admin.js            # Admin dashboard logic
-│   │   ├── config.example.js   # Config template (copy → config.js)
-│   │   └── config.js           # ⚠️ Your local config (gitignored, not committed)
-│   ├── styles/
-│   │   ├── style.css           # Main stylesheet
-│   │   ├── responsive.css      # Responsive/media query overrides
-│   │   └── admin.css           # Admin panel stylesheet
-│   └── policies/
-│       ├── privacy-policy.pdf
-│       └── refund-policy.pdf
-├── .env.example                # Environment variable template
+├── frontend/                   # All client-facing static files
+│   ├── index.html              # Main landing page
+│   ├── menu.html               # Full menu page
+│   ├── about.html              # About Us page
+│   ├── login.html              # Admin login page
+│   ├── admin.html              # Admin dashboard
+│   ├── contact.html            # Contact & inquiry page
+│   └── assets/
+│       ├── images/             # All image assets
+│       ├── scripts/
+│       │   ├── data.js         # Menu data model + localStorage CRUD
+│       │   ├── script.js       # Home page interactions (navbar, swiper, lightbox)
+│       │   ├── menu.js         # Menu page rendering + category filters
+│       │   ├── about.js        # About page interactions
+│       │   ├── contact.js      # Contact form multi-step logic
+│       │   ├── auth.js         # Admin authentication logic
+│       │   ├── admin.js        # Admin dashboard logic
+│       │   ├── config.example.js  # Config template (copy → config.js)
+│       │   └── config.js       # ⚠️ Your local config (gitignored, not committed)
+│       ├── styles/
+│       │   ├── style.css       # Main stylesheet
+│       │   ├── responsive.css  # Responsive/media query overrides
+│       │   └── admin.css       # Admin panel stylesheet
+│       └── policies/
+│           ├── privacy-policy.pdf
+│           └── refund-policy.pdf
+├── backend/                    # Node.js/Express server
+│   ├── server.js               # Express static file server
+│   ├── package.json            # Node.js dependencies
+│   └── .env.example            # Environment variable template
 ├── docs/                       # Agile SDLC documentation
 │   ├── 01-planning.md
 │   ├── 02-requirements.md
@@ -108,7 +116,7 @@ hela-bojun/
 
 ## 🚀 How to Start the Website
 
-### Option 1 — Open directly in a browser (quickest)
+### Option 1 — Backend server with Node.js (recommended)
 
 1. **Clone the repository**:
    ```bash
@@ -118,38 +126,52 @@ hela-bojun/
 
 2. **Create your `config.js`** (required for the admin panel):
    ```bash
-   cp assets/scripts/config.example.js assets/scripts/config.js
+   cp frontend/assets/scripts/config.example.js frontend/assets/scripts/config.js
    ```
 
-3. **Open `index.html`** in any modern browser (Chrome, Firefox, Edge, Safari).
+3. **Install backend dependencies and start the server**:
+   ```bash
+   cd backend
+   npm install
+   npm start
+   ```
 
-> ⚠️ Some browsers block `localStorage` for `file://` URLs. If the menu does not load, use one of the options below.
+4. Open `http://localhost:3000` in your browser.
 
 ---
 
-### Option 2 — VS Code Live Server (recommended for development)
+### Option 2 — Open directly in a browser (quickest)
+
+1. **Clone the repository** and create `config.js` as above.
+2. **Open `frontend/index.html`** in any modern browser (Chrome, Firefox, Edge, Safari).
+
+> ⚠️ Some browsers block `localStorage` for `file://` URLs. If the menu does not load, use Option 1 or one of the options below.
+
+---
+
+### Option 3 — VS Code Live Server (recommended for development)
 
 1. Install the **Live Server** extension in VS Code.
-2. Right-click `index.html` → **Open with Live Server**.
-3. The site will open at `http://127.0.0.1:5500/` and auto-reload on save.
+2. Right-click `frontend/index.html` → **Open with Live Server**.
+3. The site will open at `http://127.0.0.1:5500/frontend/` and auto-reload on save.
 
 ---
 
-### Option 3 — `npx serve` (Node.js required)
+### Option 4 — `npx serve` (Node.js required)
 
 ```bash
 cd hela-bojun
-npx serve .
+npx serve frontend
 ```
 
 The site will be available at `http://localhost:3000`.
 
 ---
 
-### Option 4 — Python HTTP server
+### Option 5 — Python HTTP server
 
 ```bash
-cd hela-bojun
+cd hela-bojun/frontend
 # Python 3
 python -m http.server 8080
 # Python 2
@@ -194,7 +216,7 @@ The admin panel allows staff to manage menu items (add, edit, delete, toggle ava
 
 ### 1. Set up demo credentials
 
-Create `assets/scripts/config.js` (this file is gitignored and must be created locally):
+Create `frontend/assets/scripts/config.js` (this file is gitignored and must be created locally):
 
 ```javascript
 window.APP_CONFIG = {
@@ -245,9 +267,9 @@ echo -n "yournewpassword" | sha256sum
 
 | File | Purpose |
 |---|---|
-| `assets/scripts/config.example.js` | Template — copy to `config.js` |
-| `assets/scripts/config.js` | **Gitignored** — holds real admin credentials |
-| `.env.example` | Documents environment variables |
+| `frontend/assets/scripts/config.example.js` | Template — copy to `config.js` |
+| `frontend/assets/scripts/config.js` | **Gitignored** — holds real admin credentials |
+| `backend/.env.example` | Documents environment variables |
 
 `config.js` structure:
 
